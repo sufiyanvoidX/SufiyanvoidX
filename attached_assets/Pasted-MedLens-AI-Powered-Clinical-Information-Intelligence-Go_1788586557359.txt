@@ -1,0 +1,184 @@
+MedLens — AI-Powered Clinical Information Intelligence
+
+Goal
+
+Build a professional, responsive full-stack web application that organizes fragmented patient information and medical reports into a structured, understandable, traceable patient record.
+
+Core Features
+
+1. Patient Information
+
+Allow users to enter:
+
+- Patient ID/name
+- Age
+- Sex
+- Symptoms
+- Existing conditions
+- Allergies
+- Medications
+- Other relevant information
+
+Clearly mark this information as Patient-provided.
+
+2. Medical Report Processing
+
+Allow users to upload or provide medical reports such as PDF, image, or text.
+
+Extract:
+
+- Test name
+- Value
+- Unit
+- Reference range
+- Date
+- Observation
+
+Display extracted information in a structured table.
+
+3. Reference Range Awareness
+
+This is critical.
+
+Use ONLY the reference range present in the uploaded/source report.
+
+- If the value is below the provided range → Low
+- Within the provided range → Normal
+- Above the provided range → High
+- If no reference range is provided → "Not classified — Reference range not provided"
+
+NEVER invent, assume, or retrieve a reference range from general medical knowledge.
+
+4. Source & Provenance
+
+Clearly identify whether information is:
+
+- Patient-provided
+- Report-extracted
+- AI-generated
+- Human-verified
+
+Users should be able to understand where every important piece of information came from.
+
+5. AI Summary
+
+Generate a concise, easy-to-understand summary based only on the structured information.
+
+The AI must NOT:
+
+- Diagnose diseases
+- Prescribe medication
+- Recommend medication changes
+- Recommend dosages
+- Present uncertain information as fact
+
+Show a clear disclaimer that the application is an informational tool and medical decisions require professional review.
+
+6. Human Verification
+
+Allow users to review and edit AI-extracted findings.
+
+Show verification status such as:
+
+- AI extracted
+- Human verified
+
+7. Conflict Detection
+
+Detect possible inconsistencies in the provided information and reports.
+
+Example:
+An allergy and medication entry may conflict.
+
+Only FLAG the inconsistency for human review. Do not make a medical judgment.
+
+8. History & Comparison
+
+Maintain patient/report history.
+
+Allow users to:
+
+- View previous reports
+- Compare current and previous findings
+- View changes over time
+
+9. Dashboard
+
+Create a professional healthcare-style dashboard containing:
+
+- Dashboard
+- Patients
+- Reports
+- Patient Overview
+- Medical Findings
+- AI Summary
+- Source & Provenance
+- History/Timeline
+
+The design should look like a polished healthcare SaaS product, not a generic chatbot.
+
+Security
+
+- Validate all user inputs.
+- Restrict uploaded file types and sizes.
+- Protect sensitive information.
+- Never expose API keys or secrets.
+- Store secrets only in environment variables.
+- Prevent common injection/XSS vulnerabilities.
+- Do not leak sensitive information in errors.
+
+Accessibility
+
+Follow practical WCAG principles:
+
+- Semantic HTML
+- Proper form labels
+- Keyboard navigation
+- Visible focus states
+- Good contrast
+- Accessible error messages
+- Responsive design
+
+Testing
+
+Actually test:
+
+- Patient input
+- Report processing
+- Missing reference ranges
+- Low/Normal/High classification
+- Invalid input
+- Invalid uploads
+- AI extraction errors
+- Human verification
+- Conflict detection
+- History/comparison
+- Responsive UI
+
+Fix bugs before finishing.
+
+Technical Requirements
+
+Use a lightweight, reliable full-stack architecture.
+
+The application must:
+
+- Run successfully in Replit
+- Be suitable for GitHub
+- Be deployable to Google Cloud Run
+- Use process.env.PORT for the server
+- Use environment variables for API keys
+- Avoid unnecessary dependencies
+
+Prioritize:
+
+1. Problem statement alignment
+2. Working functionality
+3. Code quality
+4. Security
+5. Efficiency
+6. Testing
+7. Accessibility
+8. Responsible AI
+
+Build the MVP first and verify that it works before adding advanced features.
